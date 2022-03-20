@@ -31,11 +31,11 @@ def app():
         
         submitted = st.form_submit_button("Submit")
         if submitted:
-            with open(os.path.join("tmp/",uploaded_file.name),"wb") as f:
+            with open(os.path.join("/tmp/",uploaded_file.name),"wb") as f:
                 f.write((uploaded_file).getbuffer())
             st.success("File Saved")
     try:     
-        with open("tmp/"+ uploaded_file.name) as fp:
+        with open("/tmp/"+ uploaded_file.name) as fp:
             soup = BeautifulSoup(fp, 'html.parser')
         
         # st.code(soup.prettify())
@@ -107,8 +107,8 @@ def app():
         #g.repulsion(node_distance=320,spring_length=220)
         g.force_atlas_2based(gravity=-200, spring_length=220 , overlap=1)
         g.hrepulsion(node_distance=380)
-        g.show("tmp/g.html")
-        HtmlFile = open("tmp/g.html", 'r', encoding='utf-8')
+        g.show("/tmp/g.html")
+        HtmlFile = open("/tmp/g.html", 'r', encoding='utf-8')
         source_code = HtmlFile.read() 
         components.html(source_code, height=700)
         st.ballons()
