@@ -31,7 +31,7 @@ def app():
         
         submitted = st.form_submit_button("Submit")
         if submitted:
-            with open(os.path.join("/tmp/",uploaded_file.name),"w") as f:
+            with open(os.path.join("/tmp/",uploaded_file.name),"wb") as f:
                 f.write((uploaded_file).getbuffer())
             st.success("File Saved")
     try:     
